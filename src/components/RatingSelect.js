@@ -1,12 +1,14 @@
-import React,{useState, useContext, useEffect} from 'react'
+import React,{ useContext, useEffect} from 'react'
 import FeedbackContext from '../context/FeedbackContext';
+
+
 function RatingSelect({select, selected}) {
   const {  feedbackEdit } = useContext(FeedbackContext);
-
+// eslint-disable-next-line
   useEffect(()=>{
     select(feedbackEdit.item.rating);
 
-  },[feedbackEdit])
+  },[feedbackEdit, select])
   const handleChange =(e) =>{
     select(+e.target.value);
   }
